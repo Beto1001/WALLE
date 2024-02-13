@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Vibration } from 'react-native';
 import { getNotifications } from '../../datasource/notificationsDataSource';
 import { Ionicons } from '@expo/vector-icons';
 const NotificationCard: React.FC = () => {
   const [notifications, setNotifications] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [isTouched, setIsTouched] = useState(false);
+
+  const handleTouch = ()=>{
+    setIsTouched(!isTouched);
+    Vibration.vibrate();
+  }
 
   useEffect(() => {
     const fetchNotifications = async () => {
@@ -29,12 +35,16 @@ const NotificationCard: React.FC = () => {
 
             <TouchableOpacity>
               {notifications.map((notification) => (
-               <TouchableOpacity style={styles.rectangle} key={notification.id_notification}>
-                     <Text>
-                     <Ionicons name="notifications" size={24} color="black" />
-                    </Text>
-                    <Text style={styles.notification}>{`${notification.notification}`}</Text>
-               </TouchableOpacity>
+                <TouchableOpacity 
+                  style={styles.rectangle} 
+                  key={notification.id_notification} 
+                  onPress={handleTouch}
+                >
+                  <Text>
+                    <Ionicons name="notifications" size={24} color="black" />
+                  </Text>
+                  <Text style={styles.notification}>{`${notification.notification}`}</Text>
+                </TouchableOpacity>
               ))}
             </TouchableOpacity>
         </View>
@@ -75,7 +85,18 @@ const styles = StyleSheet.create({
     fontSize:15,
     fontWeight:'bold',
     color:'gray'
-  }
+  },
+  afterTouch:{
+    borderWidth: 2,
+    borderColor: 'black',
+    padding: 10,
+    marginBottom: 8,
+    display:'flex',
+    flexDirection:'row',
+    alignItems:'center',
+    backgroundColor:'#00FF00'
+
+  },
 });
 
 export default NotificationCard;
