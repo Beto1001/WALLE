@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Vibration } from 'react-native';
 import { getNotifications } from '../../datasource/notificationsDataSource';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import DeleteNotification from './DeleteNotification';
 const NotificationCard: React.FC = () => {
   const [notifications, setNotifications] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isTouched, setIsTouched] = useState(false);
 
-  const handleTouch = ()=>{
+  const handleTouch = () => {
     setIsTouched(!isTouched);
     Vibration.vibrate();
   }
@@ -41,9 +42,16 @@ const NotificationCard: React.FC = () => {
                   onPress={handleTouch}
                 >
                   <Text>
-                    <Ionicons name="notifications" size={24} color="black" />
+                    <Ionicons 
+                      name="notifications" 
+                      size={24} 
+                      color="black" 
+                    />
                   </Text>
                   <Text style={styles.notification}>{`${notification.notification}`}</Text>
+                  <DeleteNotification
+                    id_notification ={notification.id_notification}
+                  />
                 </TouchableOpacity>
               ))}
             </TouchableOpacity>
