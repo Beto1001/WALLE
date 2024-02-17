@@ -1,0 +1,19 @@
+import NotificationsScreen from './features/notifications/application/screens/NotificationsScreen';
+import HomeScreen from './HomeScreen';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+<NavigationContainer>
+      <Stack.Navigator>
+          <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{title: 'Welcome'}}
+         />
+          <Stack.Screen
+          name="Notifications"
+          component={NotificationsScreen}
+          options={{title: 'Notifications'}}
+         />
+      </Stack.Navigator>
+    </NavigationContainer>
