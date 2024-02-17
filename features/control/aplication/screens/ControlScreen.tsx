@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Session } from '@supabase/supabase-js'
-import { supabase } from '../../../../lib/supabase'
 export default function ControlScreen( { session }: { session: Session }) {
     
     return (
@@ -14,7 +13,6 @@ export default function ControlScreen( { session }: { session: Session }) {
                 />
 
             <View style={styles.verticallySpaced}>
-        <TouchableOpacity style={styles.button} onPress={() => supabase.auth.signOut()}><Text style={styles.textButton}>Salir</Text></TouchableOpacity>
       </View>
         </View>
     );

@@ -4,6 +4,7 @@ import GraficasSensoresScreen from '../../features/sensores/aplicacion/screens/G
 import ControlScreen from '../../features/control/aplication/screens/ControlScreen'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons,FontAwesome } from '@expo/vector-icons';
+import Logout from '../../features/auth/application/components/LogOut';
 export default function HomeScreen() {
   const Tab = createBottomTabNavigator();
   return (
@@ -35,6 +36,13 @@ export default function HomeScreen() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="game-controller" size={24} color="black" />
           ),
+        }}
+        />
+         <Tab.Screen
+        name="Salir"
+        component={()=>null}
+        options={{
+          tabBarIcon: ({ color, size }) => <Logout/>,
         }}
         />
      </Tab.Navigator>
