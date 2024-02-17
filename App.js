@@ -1,10 +1,13 @@
-import { StyleSheet} from 'react-native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { StyleSheet,View} from 'react-native';
 import AuthScreen from './features/auth/application/screens/AuthScreen'
+import { NavigationContainer } from '@react-navigation/native';
 export default function App() {
-  const Stack = createNativeStackNavigator();
   return (
-    <AuthScreen />
+    <NavigationContainer>
+      <AuthScreen />    
+
+
+    </NavigationContainer>
   );
 }
 const styles = StyleSheet.create({

@@ -4,7 +4,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import GraficaGas from '../../Sensor_Gas/aplicacion/screens/GraficasGas';
 
-const GraficasSensores: React.FC = () => {
+const GraficasSensoresScreen: React.FC = () => {
   return (
     <View>
       <GraficaGas />
@@ -12,4 +12,4 @@ const GraficasSensores: React.FC = () => {
   );
 };
 
-export default GraficasSensores;
+export default GraficasSensoresScreen;

@@ -12,6 +12,7 @@ AppState.addEventListener('change', (state) => {
 })
 
 export default function Auth() {
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -44,6 +45,7 @@ export default function Auth() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Wall-e</Text>
       <View style={[styles.verticallySpaced, styles.mt20]}>
         <Input
           label="Correo Electrónico"
@@ -103,4 +105,15 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       color: 'white',
     },
+    title: {
+          backgroundColor: '#F8F0E3',
+          borderRadius: 9,
+          marginTop: 100,
+          color: '#422719',
+          fontSize: 40,
+          textAlign: 'center',
+          maxWidth: 200,
+          marginLeft: '23%',
+          fontWeight: 'bold',
+        },
 })
