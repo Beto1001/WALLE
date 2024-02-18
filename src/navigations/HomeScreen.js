@@ -5,6 +5,7 @@ import ControlScreen from '../../features/control/aplication/screens/ControlScre
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons,FontAwesome,FontAwesome5 } from '@expo/vector-icons';
 import Logout from '../../features/auth/application/components/LogOut';
+import Farewell from '../../features/auth/application/components/Farewell';
 import VideoScreen from '../../features/video/application/screens/VideoScreen';
 export default function HomeScreen() {
   const Tab = createBottomTabNavigator();
@@ -50,9 +51,10 @@ export default function HomeScreen() {
         />
          <Tab.Screen
         name="Salir"
-        component={()=>null}
+        component={Farewell}
         options={{
           tabBarIcon: ({ color, size }) => <Logout/>,
+          headerShown: false
         }}
         />
      </Tab.Navigator>

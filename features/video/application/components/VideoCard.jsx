@@ -17,14 +17,15 @@ export default function VideoCard() {
 const styles = StyleSheet.create({
     container:{
         borderWidth: 2,
-        width:'%98',
-        height:300,
+        width:'98%',
+        height:200,
         borderColor: 'black',
         padding: 10,
         marginBottom: 8,
         display:'flex',
-        flexDirection:'row',
         alignItems:'center',
+        justifyContent:'center',
+        marginLeft:4,
     },
     title:{
         color:'blue',
