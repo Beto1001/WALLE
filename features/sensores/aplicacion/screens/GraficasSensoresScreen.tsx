@@ -1,5 +1,3 @@
-//aplicacion/screens/GraficasSensores.tsx
-
 import React from 'react';
 import { View} from 'react-native';
 import GraficaGas from '../../Sensor_Gas/aplicacion/screens/GraficasGas';
