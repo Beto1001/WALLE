@@ -1,16 +1,42 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Session } from '@supabase/supabase-js'
-export default function ControlScreen( { session }: { session: Session }) {
+export default function ControlScreen() {
+
+
+  const bUp = [styles.button, styles.upRow]
+  const bLe = [styles.button, styles.leftRow]
+  const bRi = [styles.button, styles.rightRow]
+  const bDo = [styles.button, styles.downRow]
+
     
     return (
-        <View>
+        <View style={styles.container}>
             <Text style={styles.subTitle}>
                 Control Screen
             </Text>
-                <Image 
-                    source={require('../../../../assets/control.png')}
-                    style={{width:300, height:300, margin: 30}}
-                />
+            <View style={styles.buttonsBox} >
+              <TouchableOpacity style={bUp}>
+                <Text style={styles.textButton} >UP</Text>
+              </TouchableOpacity>
+
+              <View style={styles.lr}>
+
+                <TouchableOpacity style={bLe}>
+                  <Text style={styles.textButton} >left</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={bRi}>
+                  <Text style={styles.textButton} >right</Text>
+                </TouchableOpacity>
+
+              </View>
+              
+              <TouchableOpacity style={bDo}>
+                <Text style={styles.textButton} >down</Text>
+              </TouchableOpacity>
+
+              
+            </View>
 
             <View style={styles.verticallySpaced}>
       </View>
@@ -32,26 +58,53 @@ const styles = StyleSheet.create({
       },
     container: {
       marginTop: 40,
-      padding: 12,
     },
     verticallySpaced: {
       paddingTop: 4,
       paddingBottom: 4,
       alignSelf: 'stretch',
     },
+    lr: {
+      marginLeft: 10,
+      display: 'flex',
+      flexDirection: 'row'
+    },
     button: {
+      backgroundColor: '#333',
+      borderRadius: 90,
+      padding: 10,
+      margin: 5,
+      width: 100,
+      height: 80,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#009C8C',
-      width: 210,
-      height: 60,
-      borderRadius: 10,
-      marginTop: 10,
-      marginLeft: 80
+
       },
       textButton: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        color: 'white',
+        color: '#fff',
+      fontSize: 16,
+      fontWeight: 'bold'
+      },
+      buttonsBox: {
+        margin: 9,
+        marginTop: 50,
+        maxHeight: 800,
+        maxWidth: 400,
+      },
+      upRow: {
+        marginLeft: '36%',
+        marginBottom: 20,
+      },
+      leftRow: {
+        color: '#fff',
+      fontSize: 16,
+      },
+      rightRow: {
+        marginLeft: 110
+      },
+      downRow: {
+        marginLeft: '36%',
+        marginTop: 20,
       },
   })
+
